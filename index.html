@@ -287,6 +287,8 @@
 				cursor:pointer;
 			}
 
+
+
 			.founder-text{
 				width:35vw;
 				height:35vw;
@@ -304,7 +306,8 @@
 				right:15vw;
 				width:35vw;
 				overflow:hidden;
-
+				cursor:pointer;
+				pointer-events: none;
 			}
 
 			#madeline-text-container{
@@ -314,6 +317,8 @@
 				left:15vw;
 				width:35vw;
 				overflow:hidden;
+				cursor:pointer;
+				pointer-events: none;
 			}
 
 			#julie-text{
@@ -338,6 +343,10 @@
 				left:15vw;
 			}
 
+			#julie:hover{
+				color:slategrey;
+			}
+
 			#madeline {
 				/*background-image:url("./madeline-photo.jpg");*/
 				background: linear-gradient( rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5) ), url(./madeline-photo.png); 
@@ -347,6 +356,10 @@
    				padding-top:12.5vw;
 				color:white;
 				right:15vw;
+			}
+
+			#madeline:hover{
+				color:slategrey;
 			}
 
 			.founder-name{
@@ -599,7 +612,7 @@
 
 			 });
 
-			$('#madeline-text-container').on('click',function() {
+			$('#julie').on('click',function() {
 			    if($('#julie-text').css('left')=='0px'){
 				console.log("here");
 			        $('#julie-text').animate({left: '-35vw'}, 1000);        
@@ -608,7 +621,7 @@
 			    }
 			});
 
-			$('#julie-text-container').on('click',function() {
+			$('#madeline').on('click',function() {
 			    if($('#madeline-text').css('right')=='0px'){
 			        $('#madeline-text').animate({right: '-35vw'}, 1000);        
 			    }else{
