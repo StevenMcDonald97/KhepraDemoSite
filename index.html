@@ -1,0 +1,623 @@
+<html>
+	<head>
+		<title>
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"> 		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		<style>
+			body {
+				background-color:none;
+			}
+
+			.break {
+				width:100%;
+				margin-top:1em;
+				margin-bottom:1em;
+			}
+
+
+
+			.videoContainer{
+				max-height:100%;
+				overflow:hidden;
+    			display:block;
+    			background-color: rgba(0,0,0,1);
+			}
+
+			.video {
+				width:100vw;
+				overflow:hidden;
+				opacity:50%;
+				background-color: #555;
+    			box-shadow: 0 0 15px 20px #555;
+			}
+
+
+			.calculatorContainer {
+				margin-top:5em;
+				width:100%;
+
+			}
+
+			.carousel-control {
+				background-image:none !important;
+			}
+
+			.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+			  top: 80% !important;  
+			}
+
+			.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+			  top: 80% !important;  
+			}
+
+			.carousel-caption{
+				margin-bottom:10% !important;
+			}
+
+			.calculator {
+				margin:0 auto;
+				width:20vw;
+			}
+
+
+			.calculatorLabel {
+				font-size:1.5em;
+			}
+
+			.calculatorInput {
+				width:8vw;
+				float:right;
+			}
+
+			.esc-div {
+				width:450px;
+				background-color: #f9f9f9;
+				border:1px solid #cccccc;
+				border-radius: 7px;
+				padding:15px;
+			}
+
+			.esc-error {
+				font-family: Verdana, Arial, Helvetica, sans-serif;
+				font-size: 10px;
+				color:#ca0000;
+			}
+
+			.finalbalance {
+				margin:0 auto;
+				font-size:24px;
+				color:#ca0000;
+				width:30vw;
+				text-align:center;
+			}
+
+			.btn{
+				border:none;
+			}
+
+			#landing-page{
+				position:absolute;
+				z-index:5;
+				width:20%;
+				height:20%;
+				text-align:center;
+				margin-top:15vw;
+				margin-left:40%;
+
+			}
+
+			#main-logo{
+				width:12vw;
+				margin-bottom:2em;
+			}
+
+			#main-carousel{
+				position:relative;
+			}
+
+			#main-landing-text{
+				font-family: 'Nunito', sans-serif;
+				font-size:2.5em;
+				color:ghostwhite;
+				letter-spacing: 0.125em;
+
+			}
+
+
+			/*DROP DOWN */
+
+			.menu{
+				list-style:none;
+				margin-right:3.5em;
+				margin-top:3em;
+			}
+
+			.menu > li{
+				margin-top:1em;
+			}
+
+			.menu-wrap {
+				background-color: rgba(0,20,40,0.35);
+				position: fixed;
+				top: 0;
+				height: 100%;
+				width:100%;
+				text-align:right;
+				margin-top: -120vh;
+				font-size: 1.5em;
+				font-weight: 700;
+				overflow: auto;
+				transition: .5s;
+				box-shadow: 0px 20px 10vh 10vh rgb(0,20,40, 0.35);
+				z-index: 10;
+			}
+			.menu-show {
+				margin-top: 0;
+			}
+
+			.sidebar-menu-arrow::after {
+				content: "\f107";
+				font-family: 'FontAwesome';
+				color: white;
+				position: relative;
+			}
+			.sidebar-menu-arrow:hover::after {
+				cursor: pointer;
+				color: #fff;
+			}
+			.sidebar-menu-arrow:active::after {
+				top: 2px;
+			}
+
+			.menu-link{
+				color:white;
+				letter-spacing: 0.125em;
+			}
+
+			/*Hamburger Button*/
+
+			.toggle-button {
+				position: fixed;
+				width: 3vw;
+				height: 2vw;
+				top: 1.5em;
+				right: 5em;
+				padding: .2em;
+				transition: .5s;
+				z-index: 15;
+			}
+
+			.toggle-button:hover {
+				cursor: pointer;
+
+			}
+
+			.toggle-button .menu-bar {
+				position: absolute;
+				border-radius: 2px;
+				width: 80%;
+				min-width:21px;
+				transition: .5s;
+			}
+
+			.toggle-button .menu-bar-top {
+				border: 3px solid #fff;
+				border-bottom: none;
+				margin-top: 0;
+			}
+
+			.toggle-button .menu-bar-middle {
+				height: 3px;
+				background-color: #fff;
+				margin-top: .75vw;
+			}
+			.toggle-button .menu-bar-bottom {
+				border: 3px solid #fff;
+				border-top: none;
+				margin-top: 1.5vw;
+			}
+
+			/*open button*/
+
+			.button-open {
+				height:24px;
+				width:24px;
+				border:2px;
+				border-radius:50%;
+    			border: 2px solid white;
+    			transform: translate(-6em, 3.2em);
+				transition: .5s;
+			}
+
+			.button-open .menu-bar-top {
+				border-color: #fff;
+				transform: translate(-.24em, .37em) rotate(-45deg);
+				transition: .5s;
+			}
+			.button-open .menu-bar-middle {
+				background-color: #fff;
+				transform: translate(0px, 250px);
+				transition: .1s ease-in;
+				opacity: 0;
+			}
+			.button-open .menu-bar-bottom {
+				margin-top: 0;
+				background-color: #fff;
+				transform: translate(-.24em, .37em) rotate(45deg) ;
+				transition: .5s;
+			}
+
+			.sub-menu{
+				display:none;
+			}
+
+
+			/*PEOPLE */
+
+			#people{
+				width:100%;
+				text-align:center;
+				margin-top:2em;
+				position:relative;
+				margin-bottom:2vw;
+			}
+
+			#people-container{
+				width:100%;
+				position:absolute;
+				z-index:1;
+			}
+
+			#people-text-container{
+				width:100%;
+				position:absolute;
+				z-index:2;
+
+			}
+
+			.founder{
+				width:35vw;
+				height:35vw;
+				display:inline-block;
+				cursor:pointer;
+			}
+
+			.founder-text{
+				width:35vw;
+				height:35vw;
+				padding-top:3vw;
+				padding-left:2vw;
+				padding-right:2vw;
+				color:white;
+				background-color: rgba(50,50,50,.9);
+				z-index:2;
+			}
+
+			#julie-text-container{
+				position:absolute;
+				top:0vw;
+				right:15vw;
+				width:35vw;
+				overflow:hidden;
+
+			}
+
+			#madeline-text-container{
+				float:right;
+				position:absolute;
+				top:0vw;
+				left:15vw;
+				width:35vw;
+				overflow:hidden;
+			}
+
+			#julie-text{
+				position:relative;
+				left:-35vw;
+			}
+
+			#madeline-text {
+				position:relative;
+				right:-35vw;
+			}
+
+
+			#julie {
+				/*background-image:url("./julie-photo.jpg");*/
+				background: linear-gradient( rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5) ), url(./julies-photo.jpg); 
+				background-size:     cover;                      /* <------ */
+    			background-repeat:   no-repeat;
+    			background-position: center center;
+				padding-top:12.5vw;
+				color:white;
+				left:15vw;
+			}
+
+			#madeline {
+				/*background-image:url("./madeline-photo.jpg");*/
+				background: linear-gradient( rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5) ), url(./madeline-photo.png); 
+    			background-size:     cover;                      /* <------ */
+			    background-repeat: no-repeat;
+			    background-position: center center;
+   				padding-top:12.5vw;
+				color:white;
+				right:15vw;
+			}
+
+			.founder-name{
+				letter-spacing: 0.125em;
+				font-weight:normal;
+				font-size:3.2vw;
+			}
+
+			.founder-title {
+				font-weight:normal;
+				font-size:2.2vw;
+			}
+
+		</style>
+	</head>
+
+
+	<body>
+		<div id="main-carousel">
+			<div class="custom-dropdown-menu">
+				<span class="toggle-button">
+		        	<div class="menu-bar menu-bar-top"></div>
+		        	<div class="menu-bar menu-bar-middle"></div>
+		        	<div class="menu-bar menu-bar-bottom"></div>
+		        </span>
+		        <div class="menu-wrap">
+			        <div class="menu-top">
+						<ul class="menu">
+							<li><a class="menu-link" href="#">Home</a></li>
+							<li><a class="menu-link" href="#">Investor</a></li>
+							<li><a class="menu-link" href="#">Partners</a></li>
+							<li class="menu-item-has-children">
+								<span class="sidebar-menu-arrow"></span>
+								<a class="menu-link" href="#">Click </a>								
+								<ul class="sub-menu">
+									<li ><a class="menu-link" href="#">child 1</a></li>
+									<li><a class="menu-link" href="#">child 2</a></li>
+									<li><a class="menu-link" href="#">child 3</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
+			    <!-- Indicators -->
+	<!-- 		    <ol class="carousel-indicators">
+			      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			      <li data-target="#myCarousel" data-slide-to="1"></li>
+			      <li data-target="#myCarousel" data-slide-to="2"></li>
+			    </ol> -->
+
+			    <!-- Wrapper for slides -->
+			    <div class="carousel-inner">
+
+			      <div id="video-1" class="item active">	
+			      	<div class="videoContainer">
+						<video class="video" autoplay muted loop>
+						 <source src="video1.mp4" type="video/mp4">
+						 <img src="./placeholder.jpg"/>
+						</video>
+					</div>
+					<div class="carousel-caption">
+						<img id="main-logo" src="./logo.png"/>
+						<p id="main-landing-text">KHEPRA</p>
+					</div>
+			      </div>
+
+
+
+			      <div class="item">
+			      	<div class="videoContainer">
+						<video class="video" autoplay muted loop>
+						 <source src="video2.mp4" type="video/mp4">
+						 <img src="./placeholder.jpg"/>
+						</video>
+					</div>		        
+					<div class="carousel-caption">
+			          <h3>Slide 2</h3>
+			          <p>Text goes here</p>
+			        </div>
+			      </div>
+			    
+			      <div class="item">
+			      	<div class="videoContainer">
+						<video class="video" autoplay muted loop>
+						 <source src="video3.mp4" type="video/mp4">
+						 <img src="./placeholder.jpg"/>
+						</video>
+					</div>		        
+					<div class="carousel-caption">
+			          <h3>Slide 3</h3>
+			          <p>Text goes here</p>
+			        </div>
+			      </div>
+			  
+			    </div>
+
+			    <!-- Left and right controls -->
+			    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			      <span class="glyphicon glyphicon-chevron-left"></span>
+			      <span class="sr-only">Previous</span>
+			    </a>
+			    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+			      <span class="glyphicon glyphicon-chevron-right"></span>
+			      <span class="sr-only">Next</span>
+			    </a>
+			  </div>
+			</div>
+		</div>
+		<br/>
+		<div class="calculatorContainer">
+			<form name="calculator" class='calculator' method=POST>
+				<Label class="calculatorLabel" for="one">First Value:</Label>
+				<input id="one" class="calculatorInput" name="one" type=text onkeypress="return onlyNumbers(event)" name=balance size=10> 
+					<span class="esc-error" id="balanceError"></span>
+				<Label class="calculatorLabel" for="two">Second Value:</Label>
+					<input id="two" type=text class="calculatorInput" name="two" onkeypress="return onlyNumbers(event)" name=rate size=5> 
+					<span class="esc-error" id="rateError"></span>
+				<Label class="calculatorLabel" for="three">Third Value:</Label>
+					<input id="three" type=text class="calculatorInput" onkeypress="return onlyNumbers(event)" name='three' size=5> 
+					<span class="esc-error" id="yearsError"></span>
+				<input type=button class="btn btn-primary"onClick="return mySavings()" value='Calculate Savings'>  
+				<input type=button class="btn btn-primary" onClick="return mySavingsReset()" value=Reset>
+			</form>
+			<p class="finalbalance" id="finalBalance"> </p>
+		</div>
+
+		<div id="people">
+			<div id="people-container">
+				<div id="julie" class="founder">
+					<h1 class="founder-name">JULIE KRING</h1>
+					<h2 class="founder-title">Co-Founder and CEO</h2>
+				</div>
+				<div id="madeline" class="founder">
+					<h1 class="founder-name">MADELINE ALLEN</h1>
+					<h2 class="founder-title">Co-Founder and COO</h2>
+				</div>
+			</div>
+			<div id="people-text-container">
+				<div id="julie-text-container">
+					<div id="julie-text" class="founder-text">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.			
+					</div>
+				</div>
+				<div id="madeline-text-container">
+					<div id="madeline-text" class="founder-text">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="break"/>
+
+	</body>
+	<script>
+
+
+			function onlyNumbers(keyinput){
+				var input=keyinput.charCode? keyinput.charCode : keyinput.keyCode
+				// if key press is not a backspace, a period, or a number, then stop character input
+				if ((input != 8) && (input != 46)) {
+					if ((input < 48) || (input > 57)) {
+						return false;
+					}
+				}
+			}
+
+			function mySavings()
+			{
+				// Reset error messages to blank
+				document.getElementById('balanceError').innerHTML = '';
+				document.getElementById('rateError').innerHTML = '';
+				document.getElementById('yearsError').innerHTML = '';
+
+				// Form validation checking
+				if ((document.getElementById('one') === null) || (document.getElementById('one').value === 0) || (isNaN(document.getElementById('one').value)))
+				{
+					console.log(document.getElementById('one').value);
+					document.getElementById('finalBalance').innerHTML = 'Please enter the missing information.';
+					document.getElementById('balanceError').innerHTML = 'Numeric value required. Example: 10000';
+				} else if ((document.getElementById('two') === null) || (document.getElementById('two').value === 0) || (isNaN(document.getElementById('two').value)))
+				{
+					document.getElementById('finalBalance').innerHTML = 'Please enter the missing information.';
+					document.getElementById('rateError').innerHTML = 'Numeric value required. Example: 3.5';
+				} else if ((document.getElementById('three') === null) || (document.getElementById('three').value === 0) || (isNaN(document.getElementById('three').value)))
+				{
+					document.getElementById('finalBalance').innerHTML = 'Please enter the missing information.';
+					document.getElementById('yearsError').innerHTML = 'Numeric value required. Example: 10';
+				} else {
+					console.log('here');
+					// Set variables from form data
+					var startingbalance = document.getElementById('one').value;
+					var interestrate = document.getElementById('two').value / 100;
+					var totalyears = document.getElementById('three').value;
+					// var totalmonths = document.calculator.years.value * 12;
+					var compoundsperyear = 12;
+
+					// Calculate final savings balance and display result
+					document.getElementById('finalBalance').innerHTML = 'Final Balance: $' + (startingbalance*Math.pow((1+interestrate/compoundsperyear),(compoundsperyear*totalyears))).toFixed(2);
+				}
+
+			// A = P(1 + r%/n)^nt
+			// startingbalance*Math.pow((1+interestrate/compoundsperyear),(compoundsperyear*totalyears))
+
+			}
+
+			function mySavingsReset(){
+				// Reset everything to default/null/blank
+				document.getElementById('finalBalance').innerHTML = 'Values reset';
+				document.getElementById('balanceError').innerHTML = '';
+				document.getElementById('rateError').innerHTML = '';
+				document.getElementById('yearsError').innerHTML = '';
+				document.getElementById('one').value = null;
+				document.getElementById('two').value = null;
+				document.getElementById('three').value = null;
+			}
+
+
+
+		
+		$(document).ready(function() {
+
+			var $toggleButton = $('.toggle-button'),
+		    	$menuWrap = $('.menu-wrap'),
+		    	$sidebarArrow = $('.sidebar-menu-arrow');
+
+			// Hamburger button
+
+			$toggleButton.on('click', function() {
+				$(this).toggleClass('button-open');
+				$menuWrap.toggleClass('menu-show');
+		
+			});
+
+
+
+			// Sidebar navigation arrows
+
+			$sidebarArrow.click(function() {
+				$(this).next().next().slideToggle(300);
+			});
+
+
+			var text_width = $('#julie-text').width();
+
+			$('#julie').click(function() {
+
+
+			 });
+
+			$('#madeline-text-container').on('click',function() {
+			    if($('#julie-text').css('left')=='0px'){
+				console.log("here");
+			        $('#julie-text').animate({left: '-35vw'}, 1000);        
+			    }else{
+			        $('#julie-text').animate({left:0}, 1000); 
+			    }
+			});
+
+			$('#julie-text-container').on('click',function() {
+			    if($('#madeline-text').css('right')=='0px'){
+			        $('#madeline-text').animate({right: '-35vw'}, 1000);        
+			    }else{
+			        $('#madeline-text').animate({right:0}, 1000); 
+			    }
+			});
+
+		});	
+	</script>
+
+
+</html>
