@@ -261,6 +261,7 @@
 
 			#people{
 				width:100%;
+				display:block;
 				text-align:center;
 				margin-top:2em;
 				position:relative;
@@ -488,6 +489,250 @@
 			<p class="finalbalance" id="finalBalance"> </p>
 		</div>
 
+
+
+		<style>
+			#savingsCalculator{
+				height:55vw;
+				width:45vw;
+				border: 2px solid #333;
+				display:block;
+				margin:0 auto;
+				margin-top:3em;
+				margin-bottom:3em;
+			}
+
+			.calculatorTab{
+				border-bottom: 2px solid #333;
+				width:49%;
+				padding:.5em;
+				text-align:center;
+				display:inline-block;
+				overflow:show;
+				cursor:pointer;
+			}
+
+			.calculatorTab:hover{
+				background:#ddd;
+			}
+
+			.activeTab{
+				background:#333;
+				color:white !important;
+				width:49%;
+			}
+
+			.activeTab:hover{
+				background:#444;
+			}
+
+			.calculatorView{
+				display:block;
+				width:100%;
+				text-align:center;
+				padding-top:3vw;
+				padding-left:2vw;
+				padding-right:2vw;
+			}
+
+			#calcView2{
+				display:none;
+			}
+
+			.calculatorText{
+				font-size:1.8vw;
+				color:#333;
+			}
+
+			.fuelOptions {
+				margin-top:5vw;
+			}
+
+			.fuelOption {
+			  display: inline-block;
+			  position: relative;
+			}
+
+			.fuelIcon{
+				height:8vw;
+				width:8vw;
+				color:white;
+				background:#ccc;
+				border-radius:50%;
+				display:block;
+				z-index:0;
+				line-height:100%;
+				text-align:center;
+				padding-top:3.2vw;
+			}
+
+			.fuelLabel{
+				font-size:1em;
+				display: block;
+				position: relative;
+				cursor: pointer;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			.fuelLabel input {
+				top: 68;
+				left: 22;
+				display:block;
+				position: absolute;
+				cursor: pointer;
+				opacity: 0;
+				cursor: pointer;
+				height: 0;
+				width: 0;
+			}
+
+			/* Create a custom checkbox */
+			.customCheckBox {
+			  position: absolute;
+			  top: 9.6vw;
+			  left: 3.1vw;
+			  height: 1.6vw;
+			  width: 1.6vw;
+			  background-color: none;
+			  z-index:1;
+			}
+
+			.outerCheckBox {
+			  position: absolute;
+			  top: 9vw;
+			  left: 2.5vw;
+			  height: 2.8vw;
+			  width: 2.8vw;
+			  background: none;
+				border: 2px solid #333;
+				z-index:0;
+			}
+
+			.checkBoxLabel {
+				position:absolute;
+				display:block;
+				top:12.5vw;
+				text-align:center;
+				width:7.5vw;
+			}
+
+			.fuelLabel:hover input ~ .outerCheckBox {
+			  background-color: #ccc;
+			}
+
+			.fuelLabel input:checked ~ .customCheckBox {
+			  background-color: #333;
+			}
+
+			.calculatedSavings {
+				position:relative;
+				width:35vw;
+				margin:0 auto;
+				top:10vw;
+				border: 1px solid #333;
+			}
+
+			.savings {
+				margin-top:.5em;
+				font-size:3.5vw;
+			}
+
+			.savingsBlurb {
+				font-size:1.2vw;
+				color:#777;
+			}
+
+			.calculatorFootnote {
+				position:relative;
+				top:12vw;
+				color:#777;
+			}
+
+			.calculatorDisclaimer {
+				position:relative;
+				text-align:center;
+				width:45vw;
+				margin-top:15vw;
+			}
+
+			small {
+				font-size:1.6vw;
+			}
+
+		</style>
+
+		<div id="savingsCalculator">
+			<div id="calcTab1" class="calculatorText calculatorTab activeTab">WASTE PRODUCER</div>
+			<div id="calcTab2" class="calculatorText calculatorTab">FUEL BUYER</div>
+			<div id="calcView1" class="calculatorView">
+				<p class="calculatorText">WHAT KIND OF WASTE ARE YOU PRODUCING?</p>
+				<p class="calculatorText">(PICK MORE THAN ONE IF APPLICABLE)</p>
+				<div class="fuelOptions">
+					<div class="fuelOption">
+						<label class="fuelLabel">
+							<div class="fuelIcon">ICON</div>
+							<input type="checkbox" value="type1">
+							<span class="customCheckBox"></span>
+							<span class="outerCheckBox"></span>
+							<div class="checkBoxLabel">Type 1</div>
+						</label>
+					</div>
+					<div class="fuelOption">
+						<label class="fuelLabel">
+							<div class="fuelIcon">ICON</div>
+							<input type="checkbox" value="type2">
+							<span class="customCheckBox"></span>
+							<span class="outerCheckBox"></span>
+							<div class="checkBoxLabel">Type 2</div>
+						</label>
+					</div>	
+					<div class="fuelOption">
+						<label class="fuelLabel">
+							<div class="fuelIcon">ICON</div>
+							<input type="checkbox" value="type3">
+							<span class="customCheckBox"></span>
+							<span class="outerCheckBox"></span>
+							<div class="checkBoxLabel">Type 3</div>
+						</label>
+					</div>	
+					<div class="fuelOption">
+						<label class="fuelLabel">
+							<div class="fuelIcon">ICON</div>
+							<input type="checkbox" value="type4">
+							<span class="customCheckBox"></span>
+							<span class="outerCheckBox"></span>
+							<div class="checkBoxLabel">Type 4</div>
+						</label>
+					</div>
+				</div>
+				<div class="calculatedSavings">
+					<p class="savings">$0 <small>/ton</small></p>
+					<p class="savingsBlurb">PER TON CALCULATOR</p>
+				</div>
+				<div class="calculatorText calculatorFootNote">KHEPRA'S FEE FOR WASTE PROCESSING*</div>
+			</div>
+			<div id="calcView2" class="calculatorView">
+				<p class="calculatorText">WHAT TYPE OF WASTE ARE YOU REPRODUCING?</p>
+				<p class="calculatorText">(USE SLIDER TO SELECT FUEL SOURCE)</p>
+				<div class="fuelOption">
+					<div class="fuelIcon"></div>
+					<div class="checkBox"></div>
+					<div class="fuelLabel"></div>
+				</div>
+				<div class="calculatedSavings">
+					<p class="">$0/barrel</p>
+					<p>VALUES BASED ON CALIFORNIA ASSUMPTIONS AND DATA</p>					
+				</div>
+				<div class="calculatorText calculatorFootNote">KHEPRA'S FEE FOR WASTE PROCESSING*</div>
+			</div>
+			<div class="calculatorDisclaimer">Lorem ipsum dolo-sit-amet, consectetuer...</div>
+
+
+		</div>
+
 		<div id="people">
 			<div id="people-container">
 				<div id="julie" class="founder">
@@ -607,10 +852,14 @@
 
 			var text_width = $('#julie-text').width();
 
-			$('#julie').click(function() {
-
-
+			$('.menu-wrap').click(function() {	
+				$toggleButton.toggleClass('button-open');
+				$menuWrap.toggleClass('menu-show');
 			 });
+
+			$(".menu-wrap li").click(function(e) {
+			    e.stopPropagation();
+			})
 
 			$('#julie').on('click',function() {
 			    if($('#julie-text').css('left')=='0px'){
