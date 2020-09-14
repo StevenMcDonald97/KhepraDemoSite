@@ -374,6 +374,178 @@
 				font-size:2.2vw;
 			}
 
+
+			/*calculator styling*/
+
+			#savingsCalculator{
+				height:32em;
+				width:27em;
+				border: 2px solid #333;
+				display:block;
+				margin:0 auto;
+				margin-top:3em;
+				margin-bottom:3em;
+			}
+
+			.calculatorTab{
+				border-bottom: 2px solid #333;
+				width:49%;
+				padding:.5em;
+				text-align:center;
+				display:inline-block;
+				overflow:show;
+				cursor:pointer;
+			}
+
+			.calculatorTab:hover{
+				background:#ddd;
+			}
+
+			.activeTab{
+				background:#333;
+				color:white !important;
+				width:49%;
+			}
+
+			.activeTab:hover{
+				background:#444;
+			}
+
+			.calculatorView{
+				display:block;
+				width:100%;
+				text-align:center;
+				padding-top:2em;
+				padding-left:1em;
+				padding-right:1em;
+			}
+
+			#calcView2{
+				display:none;
+			}
+
+			.calculatorText{
+				font-size:1em;
+				color:#333;
+			}
+
+			.fuelOptions {
+				margin-top:2.5em;
+				margin-bottom:2.5em;
+			}
+
+			.fuelOption {
+			  display: inline-block;
+			  position: relative;
+			  margin:0 .5em;
+			}
+
+			.fuelIcon{
+				height:4.5em;
+				width:4.5em;
+				color:white;
+				background:#ccc;
+				border-radius:50%;
+				display:block;
+				z-index:0;
+				line-height:100%;
+				text-align:center;
+				padding-top:1.9em;
+			}
+
+			.fuelLabel{
+				font-size:1em;
+				display: block;
+				position: relative;
+				cursor: pointer;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+
+			.fuelLabel input {
+				display:block;
+				position: absolute;
+				cursor: pointer;
+				opacity: 0;
+				cursor: pointer;
+				height: 0;
+				width: 0;
+			}
+
+			/* Create a custom checkbox */
+			.customCheckBox {
+			  position: absolute;
+			  top: 5.38em;
+			  left: 1.85em;
+			  height: .8em;
+			  width: .8em;
+			  background-color: none;
+			  z-index:1;
+			}
+
+			.outerCheckBox {
+			  position: absolute;
+			  top: 5em;
+			  left: 1.5em;
+			  height: 1.5em;
+			  width: 1.5em;
+			  background: none;
+				border: 2px solid #333;
+				z-index:0;
+			}
+
+			.checkBoxLabel {
+				position:absolute;
+				display:block;
+				top:7em;
+				text-align:center;
+				width:4.8em;
+			}
+
+			.fuelLabel:hover input ~ .outerCheckBox {
+			  background-color: #ccc;
+			}
+
+			.fuelLabel input:checked ~ .customCheckBox {
+			  background-color: #333;
+			}
+
+			.calculatedSavings {
+				position:relative;
+				width:24em;
+				margin:0 auto;
+				top:4em;
+				border: 1px solid #333;
+			}
+
+			.savings {
+				margin-top:.5em;
+				font-size:2em;
+			}
+
+			.savingsBlurb {
+				font-size:1.2vw;
+				color:#777;
+			}
+
+			.calculatorFootnote {
+				position:relative;
+				top:5em;
+				color:#777;
+			}
+
+			.calculatorDisclaimer {
+				position:relative;
+				text-align:center;
+				width:27em;
+				margin-top:6em;
+			}
+
+			small {
+				font-size:1.6vw;
+			}
 		</style>
 	</head>
 
@@ -488,181 +660,6 @@
 			</form>
 			<p class="finalbalance" id="finalBalance"> </p>
 		</div>
-
-
-
-		<style>
-			#savingsCalculator{
-				height:55vw;
-				width:45vw;
-				border: 2px solid #333;
-				display:block;
-				margin:0 auto;
-				margin-top:3em;
-				margin-bottom:3em;
-			}
-
-			.calculatorTab{
-				border-bottom: 2px solid #333;
-				width:49%;
-				padding:.5em;
-				text-align:center;
-				display:inline-block;
-				overflow:show;
-				cursor:pointer;
-			}
-
-			.calculatorTab:hover{
-				background:#ddd;
-			}
-
-			.activeTab{
-				background:#333;
-				color:white !important;
-				width:49%;
-			}
-
-			.activeTab:hover{
-				background:#444;
-			}
-
-			.calculatorView{
-				display:block;
-				width:100%;
-				text-align:center;
-				padding-top:3vw;
-				padding-left:2vw;
-				padding-right:2vw;
-			}
-
-			#calcView2{
-				display:none;
-			}
-
-			.calculatorText{
-				font-size:1.8vw;
-				color:#333;
-			}
-
-			.fuelOptions {
-				margin-top:5vw;
-			}
-
-			.fuelOption {
-			  display: inline-block;
-			  position: relative;
-			}
-
-			.fuelIcon{
-				height:8vw;
-				width:8vw;
-				color:white;
-				background:#ccc;
-				border-radius:50%;
-				display:block;
-				z-index:0;
-				line-height:100%;
-				text-align:center;
-				padding-top:3.2vw;
-			}
-
-			.fuelLabel{
-				font-size:1em;
-				display: block;
-				position: relative;
-				cursor: pointer;
-				-webkit-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-			}
-
-			.fuelLabel input {
-				top: 68;
-				left: 22;
-				display:block;
-				position: absolute;
-				cursor: pointer;
-				opacity: 0;
-				cursor: pointer;
-				height: 0;
-				width: 0;
-			}
-
-			/* Create a custom checkbox */
-			.customCheckBox {
-			  position: absolute;
-			  top: 9.6vw;
-			  left: 3.1vw;
-			  height: 1.6vw;
-			  width: 1.6vw;
-			  background-color: none;
-			  z-index:1;
-			}
-
-			.outerCheckBox {
-			  position: absolute;
-			  top: 9vw;
-			  left: 2.5vw;
-			  height: 2.8vw;
-			  width: 2.8vw;
-			  background: none;
-				border: 2px solid #333;
-				z-index:0;
-			}
-
-			.checkBoxLabel {
-				position:absolute;
-				display:block;
-				top:12.5vw;
-				text-align:center;
-				width:7.5vw;
-			}
-
-			.fuelLabel:hover input ~ .outerCheckBox {
-			  background-color: #ccc;
-			}
-
-			.fuelLabel input:checked ~ .customCheckBox {
-			  background-color: #333;
-			}
-
-			.calculatedSavings {
-				position:relative;
-				width:35vw;
-				margin:0 auto;
-				top:10vw;
-				border: 1px solid #333;
-			}
-
-			.savings {
-				margin-top:.5em;
-				font-size:3.5vw;
-			}
-
-			.savingsBlurb {
-				font-size:1.2vw;
-				color:#777;
-			}
-
-			.calculatorFootnote {
-				position:relative;
-				top:12vw;
-				color:#777;
-			}
-
-			.calculatorDisclaimer {
-				position:relative;
-				text-align:center;
-				width:45vw;
-				margin-top:15vw;
-			}
-
-			small {
-				font-size:1.6vw;
-			}
-
-		</style>
 
 		<div id="savingsCalculator">
 			<div id="calcTab1" class="calculatorText calculatorTab activeTab">WASTE PRODUCER</div>
@@ -828,6 +825,35 @@
 
 		
 		$(document).ready(function() {
+
+			$( window ).scroll(function() {
+				var viewTop = $(window).scrollTop();
+    			var carouselBottom = $("#main-carousel").offset().top + $("#main-carousel").height();
+				if(viewTop>carouselBottom){
+					$(".menu-bar-top").css("border-color", "#333");
+					$(".menu-bar-middle").css("background-color", "#333");
+					$(".menu-bar-bottom").css("border-color", "#333");
+	
+				} else {
+					$(".menu-bar-top").css("border-color", "#fff");
+					$(".menu-bar-middle").css("background-color", "#fff");
+					$(".menu-bar-bottom").css("border-color", "#fff");
+				}
+			});
+
+			var open=false;
+			$(".toggle-button").click(()=>{
+				open=!open;
+				if(open){
+					$(".menu-bar-top").css("border-color", "#fff");
+					$(".menu-bar-middle").css("background-color", "#fff");
+					$(".menu-bar-bottom").css("border-color", "#fff");
+				} else if ($(window).scrollTop()>$("#main-carousel").offset().top + $("#main-carousel").height()) {
+					$(".menu-bar-top").css("border-color", "#333");
+					$(".menu-bar-middle").css("background-color", "#333");
+					$(".menu-bar-bottom").css("border-color", "#333");				
+				}
+			})
 
 			var $toggleButton = $('.toggle-button'),
 		    	$menuWrap = $('.menu-wrap'),
