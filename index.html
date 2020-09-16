@@ -3,10 +3,12 @@
 		<title>
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"> 		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 		<style>
 			body {
@@ -19,7 +21,7 @@
 				margin-bottom:1em;
 			}
 
-
+			/*landing page */
 
 			.videoContainer{
 				max-height:100%;
@@ -36,68 +38,22 @@
     			box-shadow: 0 0 15px 20px #555;
 			}
 
-
-			.calculatorContainer {
-				margin-top:5em;
-				width:100%;
-
-			}
-
 			.carousel-control {
 				background-image:none !important;
 			}
 
-			.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
-			  top: 80% !important;  
+			.carousel-control .carousel-control-next-icon {
+				position:absolute;
+			  	top: 80% !important; 
 			}
 
-			.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
-			  top: 80% !important;  
+			.carousel-control .carousel-control-prev-icon {
+				position:absolute;
+			  	top: 80% !important;  
 			}
 
 			.carousel-caption{
 				margin-bottom:10% !important;
-			}
-
-			.calculator {
-				margin:0 auto;
-				width:20vw;
-			}
-
-
-			.calculatorLabel {
-				font-size:1.5em;
-			}
-
-			.calculatorInput {
-				width:8vw;
-				float:right;
-			}
-
-			.esc-div {
-				width:450px;
-				background-color: #f9f9f9;
-				border:1px solid #cccccc;
-				border-radius: 7px;
-				padding:15px;
-			}
-
-			.esc-error {
-				font-family: Verdana, Arial, Helvetica, sans-serif;
-				font-size: 10px;
-				color:#ca0000;
-			}
-
-			.finalbalance {
-				margin:0 auto;
-				font-size:24px;
-				color:#ca0000;
-				width:30vw;
-				text-align:center;
-			}
-
-			.btn{
-				border:none;
 			}
 
 			#landing-page{
@@ -129,7 +85,7 @@
 			}
 
 
-			/*DROP DOWN */
+			/*DROP DOWN MENU*/
 
 			.menu{
 				list-style:none;
@@ -364,7 +320,7 @@
 			}
 
 			.founder-name{
-				letter-spacing: 0.125em;
+				letter-spacing: 0.125rem;
 				font-weight:normal;
 				font-size:3.2vw;
 			}
@@ -375,25 +331,25 @@
 			}
 
 
-			/*calculator styling*/
+			/*CALCULATOR STYLING*/
 
 			#savingsCalculator{
-				height:32em;
-				width:27em;
+				height:33rem;
+				width:25rem;
 				border: 2px solid #333;
 				display:block;
 				margin:0 auto;
-				margin-top:3em;
-				margin-bottom:3em;
+				margin-top:3rem;
+				margin-bottom:10rem;
 			}
 
 			.calculatorTab{
 				border-bottom: 2px solid #333;
-				width:49%;
-				padding:.5em;
+				width:12em;
+				padding:.5rem;
 				text-align:center;
 				display:inline-block;
-				overflow:show;
+				overflow:auto;
 				cursor:pointer;
 			}
 
@@ -401,48 +357,55 @@
 				background:#ddd;
 			}
 
-			.activeTab{
+			.calculatorTab.active{
 				background:#333;
 				color:white !important;
-				width:49%;
+				width:12.45rem;
 			}
 
-			.activeTab:hover{
+			.calculatorTab.active:hover{
 				background:#444;
 			}
 
 			.calculatorView{
-				display:block;
+				display:none;
 				width:100%;
 				text-align:center;
-				padding-top:2em;
-				padding-left:1em;
-				padding-right:1em;
+				padding-top:2rem;
+				padding-left:1rem;
+				padding-right:1rem;
+			}
+
+			.calculatorView.active{
+				display:block;
 			}
 
 			#calcView2{
-				display:none;
+				/*display:none;*/
 			}
 
 			.calculatorText{
-				font-size:1em;
+				font-size:1rem;
 				color:#333;
+				margin-bottom:0;
+				margin-top:0;
 			}
 
-			.fuelOptions {
-				margin-top:2.5em;
-				margin-bottom:2.5em;
+			.wasteOptions {
+				margin-top:3rem;
+				margin-bottom:2.5rem;
 			}
 
-			.fuelOption {
+			.wasteOption {
 			  display: inline-block;
 			  position: relative;
-			  margin:0 .5em;
+			  margin:0 .5rem;
+			  margin-bottom:2rem;
 			}
 
 			.fuelIcon{
-				height:4.5em;
-				width:4.5em;
+				height:4rem;
+				width:4rem;
 				color:white;
 				background:#ccc;
 				border-radius:50%;
@@ -450,11 +413,11 @@
 				z-index:0;
 				line-height:100%;
 				text-align:center;
-				padding-top:1.9em;
+				padding-top:1.6rem;
 			}
 
 			.fuelLabel{
-				font-size:1em;
+				font-size:1rem;
 				display: block;
 				position: relative;
 				cursor: pointer;
@@ -477,20 +440,20 @@
 			/* Create a custom checkbox */
 			.customCheckBox {
 			  position: absolute;
-			  top: 5.38em;
-			  left: 1.85em;
-			  height: .8em;
-			  width: .8em;
+			  top: 5.37rem;
+			  left: 1.64rem;
+			  height: .8rem;
+			  width: .8rem;
 			  background-color: none;
 			  z-index:1;
 			}
 
 			.outerCheckBox {
 			  position: absolute;
-			  top: 5em;
-			  left: 1.5em;
-			  height: 1.5em;
-			  width: 1.5em;
+			  top: 5rem;
+			  left: 1.3rem;
+			  height: 1.5rem;
+			  width: 1.5rem;
 			  background: none;
 				border: 2px solid #333;
 				z-index:0;
@@ -499,9 +462,9 @@
 			.checkBoxLabel {
 				position:absolute;
 				display:block;
-				top:7em;
+				top:7rem;
 				text-align:center;
-				width:4.8em;
+				width:4.8rem;
 			}
 
 			.fuelLabel:hover input ~ .outerCheckBox {
@@ -514,38 +477,96 @@
 
 			.calculatedSavings {
 				position:relative;
-				width:24em;
+				width:22rem;
 				margin:0 auto;
-				top:4em;
-				border: 1px solid #333;
+				top:2rem;
+				border: 2px solid #333;
 			}
 
 			.savings {
-				margin-top:.5em;
-				font-size:2em;
+				margin-top:.5rem;
+				font-size:2.5rem;
 			}
 
 			.savingsBlurb {
-				font-size:1.2vw;
-				color:#777;
+				font-size:.7rem;
+				color:#ccc;
 			}
 
 			.calculatorFootnote {
 				position:relative;
-				top:5em;
-				color:#777;
+				top:3em;
+				color:#aaa;
+				font-size:1rem;
 			}
 
 			.calculatorDisclaimer {
 				position:relative;
-				text-align:center;
-				width:27em;
-				margin-top:6em;
+				text-align:left;
+				width:25rem;
+				padding:0 .1rem;
+				margin-top:5rem;
+				font-size:.5rem;
 			}
 
 			small {
-				font-size:1.6vw;
+				font-size:.7rem;
 			}
+
+			#fuelRange{
+				position:relative;
+				width:19rem;
+				height:2px;
+				top:-4rem;
+				background:#333;
+				-webkit-appearance: none;  /* Override default CSS styles */
+	  			appearance: none;
+	  			z-index:0;
+			}
+
+			#fuelRange::-webkit-slider-thumb {
+			  -webkit-appearance: none; /* Override default look */
+			  appearance: none;
+			  width: 25px; /* Set a specific slider handle width */
+			  height: 25px; /* Slider handle height */
+			  border-radius:50%;
+			  background: #333; /* Green background */
+			  cursor: pointer; /* Cursor on hover */
+			}
+
+			#fuelRange::-moz-range-thumb {
+			  width: 25px; /* Set a specific slider handle width */
+			  height: 25px; /* Slider handle height */
+			  border-radius:50%;
+			  background: #333; /* Green background */
+			  cursor: pointer; /* Cursor on hover */
+			}
+
+			.fuelOptions{
+				margin-top:3rem;
+			}
+
+			.fuelOption {
+				display:inline-block;
+				pointer-events: none;
+			}
+
+			.fuelOption.right {
+				float:right;
+				margin-right:.5rem;
+			}
+
+			.fuelOption.left{
+				float:left;
+				margin-left:.5rem;
+			}
+			.fuelLabel .sliderLabel{
+				font-size:.8rem;
+				width:4rem;
+				margin-top:2rem;
+			}
+
+
 		</style>
 	</head>
 
@@ -577,18 +598,10 @@
 					</div>
 				</div>
 			</div>
-			<div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
-			    <!-- Indicators -->
-	<!-- 		    <ol class="carousel-indicators">
-			      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			      <li data-target="#myCarousel" data-slide-to="1"></li>
-			      <li data-target="#myCarousel" data-slide-to="2"></li>
-			    </ol> -->
 
-			    <!-- Wrapper for slides -->
-			    <div class="carousel-inner">
-
-			      <div id="video-1" class="item active">	
+			<div id="demo" class="carousel slide" data-ride="carousel">
+			  <div class="carousel-inner">
+			    <div class="carousel-item active">
 			      	<div class="videoContainer">
 						<video class="video" autoplay muted loop>
 						 <source src="video1.mp4" type="video/mp4">
@@ -598,12 +611,9 @@
 					<div class="carousel-caption">
 						<img id="main-logo" src="./logo.png"/>
 						<p id="main-landing-text">KHEPRA</p>
-					</div>
-			      </div>
-
-
-
-			      <div class="item">
+					</div>  
+			    </div>
+			    <div class="carousel-item">
 			      	<div class="videoContainer">
 						<video class="video" autoplay muted loop>
 						 <source src="video2.mp4" type="video/mp4">
@@ -613,10 +623,9 @@
 					<div class="carousel-caption">
 			          <h3>Slide 2</h3>
 			          <p>Text goes here</p>
-			        </div>
-			      </div>
-			    
-			      <div class="item">
+			        </div>  
+			    </div>
+			    <div class="carousel-item">
 			      	<div class="videoContainer">
 						<video class="video" autoplay muted loop>
 						 <source src="video3.mp4" type="video/mp4">
@@ -626,49 +635,116 @@
 					<div class="carousel-caption">
 			          <h3>Slide 3</h3>
 			          <p>Text goes here</p>
-			        </div>
-			      </div>
-			  
+			        </div>  
 			    </div>
-
-			    <!-- Left and right controls -->
-			    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-			      <span class="glyphicon glyphicon-chevron-left"></span>
-			      <span class="sr-only">Previous</span>
-			    </a>
-			    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-			      <span class="glyphicon glyphicon-chevron-right"></span>
-			      <span class="sr-only">Next</span>
-			    </a>
 			  </div>
+			  <a class="left carousel-control-prev" href="#demo" data-slide="prev">
+			    <span class="carousel-control-prev-icon"></span>
+		      	<span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control-next" href="#demo" data-slide="next">
+			    <span class="carousel-control-next-icon"></span>
+		      	<span class="sr-only">Next</span>
+			  </a>
 			</div>
-		</div>
-		<br/>
-		<div class="calculatorContainer">
-			<form name="calculator" class='calculator' method=POST>
-				<Label class="calculatorLabel" for="one">First Value:</Label>
-				<input id="one" class="calculatorInput" name="one" type=text onkeypress="return onlyNumbers(event)" name=balance size=10> 
-					<span class="esc-error" id="balanceError"></span>
-				<Label class="calculatorLabel" for="two">Second Value:</Label>
-					<input id="two" type=text class="calculatorInput" name="two" onkeypress="return onlyNumbers(event)" name=rate size=5> 
-					<span class="esc-error" id="rateError"></span>
-				<Label class="calculatorLabel" for="three">Third Value:</Label>
-					<input id="three" type=text class="calculatorInput" onkeypress="return onlyNumbers(event)" name='three' size=5> 
-					<span class="esc-error" id="yearsError"></span>
-				<input type=button class="btn btn-primary"onClick="return mySavings()" value='Calculate Savings'>  
-				<input type=button class="btn btn-primary" onClick="return mySavingsReset()" value=Reset>
-			</form>
-			<p class="finalbalance" id="finalBalance"> </p>
-		</div>
 
-		<div id="savingsCalculator">
+		  </div>
+		</div>
+	</div>
+	<br/>
+	<div id="savingsCalculator">
+		<div id="calcTab1" class="calculatorText calculatorTab">WASTE PRODUCER</div>
+		<div id="calcTab2" class="calculatorText calculatorTab active">FUEL BUYER</div>
+		<div id="calcView1" class="calculatorView">
+			<p class="calculatorText">WHAT KIND OF WASTE ARE YOU PRODUCING?</p>
+			<p class="calculatorText">(PICK MORE THAN ONE IF APPLICABLE)</p>
+			<div class="wasteOptions">
+				<div class="wasteOption">
+					<label class="fuelLabel">
+						<div class="fuelIcon">ICON</div>
+						<input type="checkbox" value="type1">
+						<span class="customCheckBox"></span>
+						<span class="outerCheckBox"></span>
+						<div class="checkBoxLabel">Type 1</div>
+					</label>
+				</div>
+				<div class="wasteOption">
+					<label class="fuelLabel">
+						<div class="fuelIcon">ICON</div>
+						<input type="checkbox" value="type2">
+						<span class="customCheckBox"></span>
+						<span class="outerCheckBox"></span>
+						<div class="checkBoxLabel">Type 2</div>
+					</label>
+				</div>	
+				<div class="wasteOption">
+					<label class="fuelLabel">
+						<div class="fuelIcon">ICON</div>
+						<input type="checkbox" value="type3">
+						<span class="customCheckBox"></span>
+						<span class="outerCheckBox"></span>
+						<div class="checkBoxLabel">Type 3</div>
+					</label>
+				</div>	
+				<div class="wasteOption">
+					<label class="fuelLabel">
+						<div class="fuelIcon">ICON</div>
+						<input type="checkbox" value="type4">
+						<span class="customCheckBox"></span>
+						<span class="outerCheckBox"></span>
+						<div class="checkBoxLabel">Type 4</div>
+					</label>
+				</div>
+			</div>
+			<div class="calculatedSavings">
+				<p class="savings">$0 <small>/ton</small></p>
+				<p class="savingsBlurb">PER TON CALCULATOR</p>
+			</div>
+			<div class="calculatorText calculatorFootNote">KHEPRA'S FEE FOR WASTE PROCESSING*</div>
+		</div>
+		<div id="calcView2" class="calculatorView active">
+			<p class="calculatorText">BUY FUEL KHEPRA GENERATES FROM WASTE</p>
+			<p class="calculatorText">(USE SLIDER TO SELECT FUEL SOURCE)</p>
+			<div class="fuelOptions">
+				<div class="fuelOption left">
+					<label class="fuelLabel">
+						<div class="fuelIcon">ICON</div>
+						<div class="sliderLabel">SYNTHETIC WASTE</div>
+					</label>
+				</div>
+				<div class="fuelOption">
+					<label class="fuelLabel">
+						<div class="fuelIcon">ICON</div>
+						<div class="sliderLabel">50/50 MIX</div>
+					</label>
+				</div>	
+				<div class="fuelOption right">
+					<label class="fuelLabel">
+						<div class="fuelIcon">ICON</div>
+						<div class="sliderLabel">BIO WASTE</div>
+					</label>
+				</div>	
+			</div>
+			<input type="range" id="fuelRange"  min="0" max="2" step="1">
+			<div class="calculatedSavings">
+				<p class="savings">$0 <small>/barrel</small></p>
+				<p class="savingsBlurb">VALUES BASED ON CALIFORNIA ASSUMPTIONS AND DATA</p>
+			</div>
+			<div class="calculatorText calculatorFootNote">KHEPRA'S FUEL CHARGE*</div>
+		</div>
+		<div class="calculatorDisclaimer">* DISCLAIMER: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+		</div>
+	</div>
+
+
+		<!-- <div id="savingsCalculator">
 			<div id="calcTab1" class="calculatorText calculatorTab activeTab">WASTE PRODUCER</div>
 			<div id="calcTab2" class="calculatorText calculatorTab">FUEL BUYER</div>
-			<div id="calcView1" class="calculatorView">
+			<div id="calcView1" class="calculatorView active">
 				<p class="calculatorText">WHAT KIND OF WASTE ARE YOU PRODUCING?</p>
 				<p class="calculatorText">(PICK MORE THAN ONE IF APPLICABLE)</p>
-				<div class="fuelOptions">
-					<div class="fuelOption">
+				<div class="wasteOptions">
+					<div class="wasteOption">
 						<label class="fuelLabel">
 							<div class="fuelIcon">ICON</div>
 							<input type="checkbox" value="type1">
@@ -677,7 +753,7 @@
 							<div class="checkBoxLabel">Type 1</div>
 						</label>
 					</div>
-					<div class="fuelOption">
+					<div class="wasteOption">
 						<label class="fuelLabel">
 							<div class="fuelIcon">ICON</div>
 							<input type="checkbox" value="type2">
@@ -686,7 +762,7 @@
 							<div class="checkBoxLabel">Type 2</div>
 						</label>
 					</div>	
-					<div class="fuelOption">
+					<div class="wasteOption">
 						<label class="fuelLabel">
 							<div class="fuelIcon">ICON</div>
 							<input type="checkbox" value="type3">
@@ -695,7 +771,7 @@
 							<div class="checkBoxLabel">Type 3</div>
 						</label>
 					</div>	
-					<div class="fuelOption">
+					<div class="wasteOption">
 						<label class="fuelLabel">
 							<div class="fuelIcon">ICON</div>
 							<input type="checkbox" value="type4">
@@ -725,10 +801,8 @@
 				</div>
 				<div class="calculatorText calculatorFootNote">KHEPRA'S FEE FOR WASTE PROCESSING*</div>
 			</div>
-			<div class="calculatorDisclaimer">Lorem ipsum dolo-sit-amet, consectetuer...</div>
-
-
-		</div>
+			<div class="calculatorDisclaimer">*Disclaimer Lorem ipsum dolo-sit-amet, consectetuer...</div>
+		</div> -->
 
 		<div id="people">
 			<div id="people-container">
@@ -902,6 +976,29 @@
 			    }else{
 			        $('#madeline-text').animate({right:0}, 1000); 
 			    }
+			});
+
+			// calculator toggle view
+			let activeTab = "calcTab2"
+			$("#calcTab1").click(()=>{
+				console.log(activeTab);
+				if (activeTab==="calcTab2"){
+					$("#calcTab1").addClass("active");
+					$("#calcTab2").removeClass("active");
+					$("#calcView2").removeClass("active");
+					$("#calcView1").addClass("active");
+					activeTab="calcTab1"
+				}	
+			});
+
+			$("#calcTab2").click(()=>{
+				if (activeTab==="calcTab1"){
+					$("#calcTab2").addClass("active");
+					$("#calcTab1").removeClass("active");
+					$("#calcView1").removeClass("active");
+					$("#calcView2").addClass("active");
+					activeTab="calcTab2";
+				}
 			});
 
 		});	
